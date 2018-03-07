@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lantaiyuan</groupId>
+    <artifactId>ltybdservice-root</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.test.skip>true</maven.test.skip>
+        <downloadSources>true</downloadSources>
+        <file_encoding>UTF-8</file_encoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>my-repo1</id>
+            <name>your custom repo</name>
+            <url>http://repo.hortonworks.com/content/groups/public/</url>
+        </repository>
+    </repositories>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>jdk.tools</groupId>
+            <artifactId>jdk.tools</artifactId>
+            <version>1.8</version>
+            <scope>system</scope>
+            <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+        </dependency>
+    </dependencies>
+    <modules>
+        <module>ltybdservice-display</module>
+        <module>ltybdservice-scheduling</module>
+        <module>ltybdservice-buspooling</module>
+        <module>ltybdservice-frauddetect</module>
+        <module>ltybdservice-utils</module>
+        <module>ltybdservice-kafka2hive</module>
+        <module>ltybdservice-schedul</module>
+        <module>ltybdservice-udf</module>
+        <module>ltybdservice-personas</module>
+        <module>ltybdservice-persononbus</module>
+        <module>ltybdservice-traffic</module>
+        <module>ltybdservice-kafka2redis</module>
+        <module>ltybdservice-dataacquisition</module>
+        <module>ltybdservice-kafka2WebSocket</module>
+        <module>ltybdservice-kafka2hbase</module>
+        <module>ltybdservice-GpsDocking</module>
+        <module>ltybdservice-sparkkafka2hive</module>
+    </modules>
+</project>
+

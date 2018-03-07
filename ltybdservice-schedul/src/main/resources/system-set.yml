@@ -1,0 +1,72 @@
+kafka:
+   producer:
+      brokerList: "39.108.123.102:9092"
+      acks: all
+      retries: 0
+      batchSize: "16384"
+      lingerMs: 1
+      bufferMemory: 33554432
+      serializerClass: "org.apache.kafka.common.serialization.StringSerializer"
+      keySerializer: "org.apache.kafka.common.serialization.StringSerializer"
+#      valueSerializer: "kafka.serializer.StringEncoder"
+   consume:
+      brokerList: "10.1.254.11:6667"
+#      acks: 1
+#      type: async
+      group: sparkTest
+      keySerializer: "kafka.serializer.StringEncoder"
+      valueSerializer: "kafka.serializer.StringEncoder"
+#      autoCommit: false
+      # latest smallest  largest
+      offsetReset: largest
+
+      #bootstrapSservers: "140.143.180.132:26667,140.143.180.132:26668"
+      bootstrapSservers: "10.1.254.88:9092"
+      groupId: "KafkaCounsumerAllCitygroup"
+
+
+#----hdfs------------配置---------------
+hdfs:
+  path: "hdfs://192.168.2.249:8020"
+  failurePolicy: "NEVER"
+  failureEnable: "true"
+#-----hbase----------配置---------------
+hbase:
+#  zkquorum: "master","slave01","slave02","slave03","slave04"
+  zkquorums: "slave,master"
+  rootdir: "hdfs://slave02:8020/apps/hbase/data"
+  port: "2181"
+#-------spark------------配置------------
+spark:
+#  exploit: false
+#集群
+  master: "yarn"
+  #master: "spark://master:7077"
+#本地(windows)
+  #master: "local[2]"
+  appName: "schedulApplication222"
+#  jars: "E:\\lty\\sparkLed\\jars\\spark-structure.jar"
+#  executorMemory: "500m"
+  #checkpoint: "E:\\checkpoint"
+  checkpoint: "/root/hongs/checkpoint"
+  second: 1
+
+redis:
+  #host: "10.1.254.22"
+  host: "192.168.2.72"
+  port: 6379
+  timeout: 3000
+
+
+car:
+  distance: 200
+
+
+mysql:
+    ebus:
+       url: "jdbc:mysql://10.1.254.21:3306/ebus-test"
+       user: "liuwei"
+       password: "123456"
+
+
+

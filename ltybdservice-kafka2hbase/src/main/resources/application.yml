@@ -1,0 +1,20 @@
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: 140.143.180.132:26667,140.143.180.132:26668
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 5
+      group-id: test
+  datasource:
+    url: jdbc:mysql://10.1.254.12:3306
+    username: root
+    password: root123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+server:
+  port: 9002
+

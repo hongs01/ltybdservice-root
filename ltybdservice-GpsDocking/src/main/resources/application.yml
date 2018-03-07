@@ -1,0 +1,51 @@
+
+spring:
+  kafka:
+    producer:
+#      retries: 0
+#      bootstrap-servers: 192.168.2.246:6667,192.168.2.247:6667,192.168.2.248:6667,192.168.2.249:6667
+      bootstrap-servers: 140.143.180.132:26667,140.143.180.132:26668
+#      bootstrap-servers: 10.2.2.20:6667,10.2.2.21:6667, 10.2.2.22:6667
+#      bootstrap-servers: 10.1.254.90:9092
+      #10.1.254.22:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      batch-size: 65536
+      buffer-memory: 524288
+    consumer:
+#        client-id: ""
+#        bootstrap-servers: 10.1.254.90:9092
+        bootstrap-servers: 140.143.180.132:26667,140.143.180.132:26668
+#        bootstrap-servers: 10.2.2.20:6667,10.2.2.21:6667, 10.2.2.22:6667
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        group-id: gpsDocking
+#        auto-offset-reset: latest
+#        max-poll-records: 2
+#        auto-offset-reset: earliest
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://140.143.180.132:55432/changde
+    username: odoo
+    password: lty100729
+    driverClassName: org.postgresql.Driver
+  netty:
+    server:
+#      port: 18888
+#      so_backlog: 1024
+#      so_sndbuf: 32768 #32*1024
+#      so_rcvbuf: 32768 #32*1024
+#      so_keepalive: true
+    client:
+      distanceGatewayServers:
+#        - ipAddress: 127.0.0.1
+#          port: 60000
+#          dataHead: $@$@
+#          clientPort: 16666
+        - ipAddress: 192.168.2.68
+          port: 60000
+logging:
+    file: GpsDockingCD.log
+server:
+  port: 19030
+  address: 0.0.0.0

@@ -1,0 +1,49 @@
+<!--
+  release package directory structure:
+    *.tar.gz
+      conf
+        *.xml
+        *.properties
+      lib
+        application jar
+        third party jar dependencies
+      run.sh
+      run.bat
+-->
+<assembly>
+  <id>dist</id>
+  <formats>
+    <format>tar</format>
+  </formats>
+  <includeBaseDirectory>true</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <outputDirectory>conf</outputDirectory>
+      <includes>
+        <include>*.*</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/bin</directory>
+      <outputDirectory>bin</outputDirectory>
+      <filtered>true</filtered>
+      <fileMode>755</fileMode>
+    </fileSet>
+     <fileSet>
+      <directory>${project.build.directory}</directory>
+      <outputDirectory>lib</outputDirectory>
+      <includes>
+        <include>*.jar</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+  <!--<dependencySets>
+    <dependencySet>
+      <outputDirectory>lib</outputDirectory>
+      <useProjectArtifact>true</useProjectArtifact>
+      <unpack>false</unpack>
+      <scope>runtime</scope>
+    </dependencySet>
+  </dependencySets>-->
+</assembly>
